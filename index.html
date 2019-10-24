@@ -124,7 +124,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
 
         <p>Animation elements (<code>set</code> or <code>animate</code>) may be present at the <a>karaoke section</a>, <a>karaoke span</a> or <a>karaoke group</a> level to represent the timed behavior of the highlight or emphasis within the karaoke content, or to represent transitions between <a>karaoke groups</a>, or at the beginning or end of a <a>karaoke section</a>. They may use any style properties, including those defined in this specification or defined in [[!TTML2]].</p>
 
-        <p>All animations at any level within a <a>karaoke section</a> can be overriden by the presentation processor based on either user settings or processor settings.</p>
+        <p>All animations at any level within a <a>karaoke section</a> can be overridden by the presentation processor based on either user settings or processor settings.</p>
 
       </section>
       <section id='styling-attributes'>
@@ -177,7 +177,7 @@ table.coldividers td + td { border-left:1px solid gray; text-align: center;}
               </tr>
             </tbody>
           </table>
-          <p>This attribute modifies the semantics of the <dfn data-cite="!TTML2#style-attribute-textEmphasis">tts:textEmphasis</dfn> attribute when the value of the <code>emphasis-style</code> component of the <a>tts:textEmphasis</a> attribute is set to <code>auto</code>. It must be ignored otherwise. When not ignored, its value must not be <code>none</code>. In this case, the referenced image must be used instead of the default style indicated in [[!TTML2]], with a positioning indicated by the <code>emphasis-position</code> component of the <a>tts:textEmphasis</a> attribute. If an <code>emphasis-color</code> is specifed in the value of <a>tts:textEmphasis</a>, it must be ignored.</p>
+          <p>This attribute modifies the semantics of the <dfn data-cite="!TTML2#style-attribute-textEmphasis">tts:textEmphasis</dfn> attribute when the value of the <code>emphasis-style</code> component of the <a>tts:textEmphasis</a> attribute is set to <code>auto</code>. It must be ignored otherwise. When not ignored, its value must not be <code>none</code>. In this case, the referenced image must be used instead of the default style indicated in [[!TTML2]], with a positioning indicated by the <code>emphasis-position</code> component of the <a>tts:textEmphasis</a> attribute. If an <code>emphasis-color</code> is specified in the value of <a>tts:textEmphasis</a>, it must be ignored.</p>
 
           <p class="ednote">This attribute is defined as an additional attribute that builds on an existing attribute and modify the existing behavior in order to be backwards-compatible: i.e. an old parser that simply ignores the image emphasis would apply a default text emphasis.</p>
 
@@ -383,10 +383,10 @@ ttp:karaoke
                     <ul class="note">The above example is similar to the one given in the introduction. The differences are: 
                       <li>the use of the <code>ttp:karaoke</code> attribute which provides semantics enabling the presentation processor to override the styles and apply its own styles;</li>
                       <li>the use of the <code>tts:karaokeMode</code> which is used in the animation to semantically indicate that a color animation is desired, enabling any override to be color-specific.</li>
-                      <li>and the absence of the <code>tts:color</code> attribute. Note also that it could still be specified for: fallback purposes for processors that do not support this feature, or for providing indications to the presentation processor regarding the colors to be used and the type of color anuimation (outline, background, ...).</li>
+                      <li>and the absence of the <code>tts:color</code> attribute. Note also that it could still be specified for: fallback purposes for processors that do not support this feature, or for providing indications to the presentation processor regarding the colors to be used and the type of color animation (outline, background, ...).</li>
                     </ul>
                   </li>
-                  <li>When <code>emphasis</code> is used, the presentation processor should choose a single position to place the emphasis (e.g. on the middle glyph) and it is not expected to move during the time interval of the animation. Continuous animations (either explicitely specified or due to an implementation-specific behavior) may still happen outside of this interval, e.g. between active intervals of <a>karaoke spans</a> or at the start or end of <a>karaoke groups</a> or <a>karaoke sections</a>.
+                  <li>When <code>emphasis</code> is used, the presentation processor should choose a single position to place the emphasis (e.g. on the middle glyph) and it is not expected to move during the time interval of the animation. Continuous animations (either explicitly specified or due to an implementation-specific behavior) may still happen outside of this interval, e.g. between active intervals of <a>karaoke spans</a> or at the start or end of <a>karaoke groups</a> or <a>karaoke sections</a>.
                     <pre class='example'>
 &lt;tt xmlns="http://www.w3.org/ns/ttml" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" ...>
     ...
@@ -416,22 +416,22 @@ ttp:karaoke
               </li>
               <li>If an <code>animate</code> element is used, it indicates that a continuous animation is desired.
                 <ul>
-                <li>When <code>color</code> is used, the presentation processor should transition between the animation colors with any continous effect such as a color sweep.
+                <li>When <code>color</code> is used, the presentation processor should transition between the animation colors with any continuous effect such as a color sweep.
                     <pre class='example'>
 &lt;tt xmlns="http://www.w3.org/ns/ttml" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" ...>
     ...
     &lt;body ttp:karaoke=&quot;auto&quot;&gt;
       &lt;p begin=&quot;2s&quot; end=&quot;12s&quot;&gt;
         &lt;span&gt;
-          &lt;-- [4s, 5.5s): a continous color change should be applied to this span -->
+          &lt;-- [4s, 5.5s): a continuous color change should be applied to this span -->
           &lt;animate begin=&quot;2s&quot; begin=&quot;3.5s&quot; tts:karaokeMode=&quot;color&quot;/&gt;Twinkle
         &lt;/span&gt;
         &lt;span&gt;
-          &lt;-- [6s, 7.5s): a continous color change should be applied to this span -->
+          &lt;-- [6s, 7.5s): a continuous color change should be applied to this span -->
           &lt;animate begin=&quot;4s&quot; begin=&quot;5.5s&quot; tts:karaokeMode=&quot;color&quot;/&gt;Twinkle
         &lt;/span&gt;
         &lt;span&gt;
-          &lt;-- [8s, 10s): a continous color change should be applied to this span -->
+          &lt;-- [8s, 10s): a continuous color change should be applied to this span -->
           &lt;animate begin=&quot;6s&quot; begin=&quot;8s&quot; tts:karaokeMode=&quot;color&quot;/&gt;Little Star
         &lt;/span&gt;
       &lt;/p&gt;
@@ -476,7 +476,7 @@ ttp:karaoke
         </section>
       <section id='karaoke-examples'>
         <h3>Examples</h3>
-        <pre class="example">Do we need more examples? maybe a complete one? maybe with mutiple animations of different types at the same time. Maybe one with group-level animations for offscreen emphasis control.</pre>
+        <pre class="example">Do we need more examples? maybe a complete one? maybe with multiple animations of different types at the same time. Maybe one with group-level animations for offscreen emphasis control.</pre>
       </section>
       <section id='acknowledgments'>
         <h3>Acknowledgments</h3>
